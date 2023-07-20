@@ -75,7 +75,7 @@ const ModalSheet = ({isOpen, onClose, data}) => {
                     PRICE
                   </Text>
                   <Text fontSize="14" color="gray.800">
-                    $ {commify(toNum.toFixed(2))}
+                    ${commify(toNum.toFixed(2))}
                   </Text>
                 </HStack>
                 <HStack space={2} alignItems="center">
@@ -83,7 +83,7 @@ const ModalSheet = ({isOpen, onClose, data}) => {
                     MARKET CAP
                   </Text>
                   <Text fontSize="14" color="gray.800">
-                    {convertToInternationalCurrencySystem(data.marketCap)}
+                    ${convertToInternationalCurrencySystem(data.marketCap)}
                   </Text>
                 </HStack>
               </VStack>

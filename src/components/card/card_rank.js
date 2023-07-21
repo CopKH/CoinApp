@@ -31,7 +31,7 @@ const CardRank = ({data}) => {
     <Pressable
       onPress={onOpen}
       alignItems="center"
-      w="31%"
+      w={['31%', '20%']}
       bg="gray.200"
       shadow={7}
       rounded="xl"

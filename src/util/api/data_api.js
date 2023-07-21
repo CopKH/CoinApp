@@ -17,8 +17,9 @@ export const DataAPI = async limit => {
       console.log('err DataAPI', err.response.data);
       // Alert.alert(err.response.data.message.th);
     });
-  console.log('response DataAPI', response?.data.data.coins);
+  // console.log('response DataAPI', response?.data.data.coins);
   return dispatch => {
+    // console.log('response', response?.data.data.coins.length);
     dispatch(addDataStore(response?.data.data.coins));
   };
 };
@@ -33,6 +34,7 @@ export const DataSearchAPI = async data => {
     });
   console.log('response DataAPI', response?.data.data.coins);
   return dispatch => {
+    
     dispatch(addDataStore(response?.data.data.coins));
   };
 };
@@ -46,7 +48,6 @@ export const DataDetailAPI = async uuid => {
     });
 
   return dispatch => {
-    // console.log('response DataDetailAPI', response?.data?.data?.coin);
     dispatch(addDataStoreDetail(response?.data?.data?.coin));
   };
 };

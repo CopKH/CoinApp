@@ -20,8 +20,11 @@ import commify from '../../function/commaNumber';
 import {useDispatch} from 'react-redux';
 import {addDataStoreDetail} from '../../store/dataStoreDetail';
 import {Alert} from 'react-native';
-
-const CardCrypto = ({data}) => {
+import {Dimensions} from 'react-native';
+import CardAds from './card_ads';
+const CardCrypto = ({data, addAds}) => {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   const {isOpen, onOpen, onClose} = useDisclose();
   const dispatch = useDispatch();
   const oncloseRestate = () => {
@@ -29,16 +32,19 @@ const CardCrypto = ({data}) => {
     dispatch(addDataStoreDetail({}));
   };
   const toNum = +data?.price;
+  if (addAds) {
+    return <CardAds />;
+  }
   return (
     <Pressable onPress={onOpen}>
       <HStack
         h="20"
-        alignSelf="center"
+        alignSelf={['center', 'flex-start']}
         space={2}
         p="2"
         my="2"
         alignItems="center"
-        w="90%"
+        w={['90%', windowWidth * 0.3]}
         bg="gray.200"
         shadow={2}
         rounded="lg">
@@ -53,7 +59,7 @@ const CardCrypto = ({data}) => {
           alignItems="center"
           pt="2"
           justifyContent="space-between"
-          w="80%">
+          w={['80%', '70%']}>
           <VStack>
             <Text bold fontSize="15">
               {data?.symbol}

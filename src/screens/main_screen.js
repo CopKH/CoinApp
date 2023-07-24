@@ -31,14 +31,14 @@ const MainScreen = () => {
   const DataStore = useSelector(state => state?.DataStore?.data);
   const newData = DataStore?.filter(data => data.rank > 3);
   const value = 'addAds';
-  for (let index = 0; index < newData.length; index++) {
+  for (let index = 0; index < newData.length + 1; index++) {
     if ((index + 1) % 5 === 0) {
       newData.splice(index, 0, value);
     }
   }
   console.log('newData', newData);
   console.log('newData', newData.length);
-  const [limit, setLimit] = useState(16);
+  const [limit, setLimit] = useState(15);
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => {
     setRefreshing(false);
